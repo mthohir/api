@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Model\product;
 use Illuminate\Http\Request;
 
+use App\Http\Resources\Product\ProductResource;
+
 class ProductController extends Controller
 {
     /**
@@ -14,7 +16,14 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
+        // return dd(product::all());
+
+        // echo '<pre>';
+        $user = product::all();
+        // var_dump($user->toArray()); // <---- or toJson()
+        // echo '</pre>';
+
+        return response()->json($user,200,[],JSON_PRETTY_PRINT);
     }
 
     /**
@@ -46,7 +55,9 @@ class ProductController extends Controller
      */
     public function show(product $product)
     {
-        //
+        $data = new ProductResource($product);
+
+        return response()->json($data,200,[],JSON_PRETTY_PRINT);
     }
 
     /**
