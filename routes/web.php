@@ -19,14 +19,3 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/create/crud','CrudController@create');
-
-Route::post('/create/crud','CrudController@store');
-
-Route::get('/crud', 'CrudController@index');
-
-Route::get('/edit/crud/{id}','CrudController@edit');
-
-Route::post('/edit/crud/{id}','CrudController@update');
-
-Route::delete('/delete/crud/{id}','CrudController@destroy');
