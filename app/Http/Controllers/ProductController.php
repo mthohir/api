@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Product\ProductCollection;
+use App\Http\Resources\Product\ProductResource;
 use App\Model\product;
 use Illuminate\Http\Request;
 
-use App\Http\Resources\Product\ProductResource;
+
 
 class ProductController extends Controller
 {
@@ -19,7 +21,7 @@ class ProductController extends Controller
         // return dd(product::all());
 
         // echo '<pre>';
-        $user = product::all();
+        $user = ProductCollection::collection(product::all());
         // var_dump($user->toArray()); // <---- or toJson()
         // echo '</pre>';
 
