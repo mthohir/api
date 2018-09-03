@@ -21,11 +21,13 @@ class ProductController extends Controller
         // return dd(product::all());
 
         // echo '<pre>';
-        $user = ProductCollection::collection(product::all());
+
+        return ProductCollection::collection(product::paginate(4));
+        // $user = ProductCollection::collection(product::all());
         // var_dump($user->toArray()); // <---- or toJson()
         // echo '</pre>';
 
-        return response()->json($user,200,[],JSON_PRETTY_PRINT);
+        // return response()->json($user,200,[],JSON_PRETTY_PRINT);
     }
 
     /**
